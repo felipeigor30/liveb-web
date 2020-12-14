@@ -1,0 +1,18 @@
+
+.text-description-color{
+  color: #000;
+}
+
+.border-zero{
+  border-radius: 0px;
+}
+li{
+  padding: 3px;
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.p-title{
+  font-weight: bold;
+  
+}

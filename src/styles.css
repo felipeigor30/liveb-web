@@ -1,0 +1,61 @@
+*{
+  line-height: 100%;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+    list-style-type: none;
+}
+body{
+  font-family: "Poppins",sans-serif !important;
+  background-color: #3d3d3d !important;
+ 
+}
+.row-custom{
+    position: absolute !important;
+    top: 0px !important;
+    margin: 0 !important;
+    left: 0px !important;
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+.css-1pahdxg-control {
+	border-color: #4b0082 !important;
+	box-shadow: 0 0 0 1px #4b0082 !important;
+}
+
+.css-9gakcf-option {
+	background-color: #4b0082 !important;
+
+}
+.css-9gakcf-option:hover {
+	background-color: #4b0082 !important;
+}
+
+
+.css-1n7v3ny-option {
+	background-color: rgb(157, 116, 185) !important;
+	color: white !important;
+}
+
+.home,
+.reports,
+.products {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+#main-container{
+  top:90px !important;
+}
+.main-container{
+  top:90px !important;
+  background-color: #3d3d3d !important;
+}
+.header-custom{
+  background-color: #3d3d3d;
+  color: white !important;
+}
