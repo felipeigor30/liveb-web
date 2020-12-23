@@ -1,105 +1,51 @@
 import React, { useState } from 'react'
-import { Accordion, Button, Card, Alert } from 'react-bootstrap'
-import { BiChevronDown } from "react-icons/bi";
-
-import { useHistory } from 'react-router-dom'
+import { Button, Alert } from 'react-bootstrap'
+import { useHistory, Link } from 'react-router-dom'
 import { useAuth } from '../../context/authContext'
 import './styles.css'
-
+import ImageDefaultPlan from '../choosePlan/bg-plan-500k.jpeg'
 import Sidebar from '../sidebarMenu'
 
 export default function ChoosePlan() {
-
-  const { handlePlanGold, possuiPlano } = useAuth()
   const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
-  const history = useHistory()
-
-
-  async function handleSubmitGold(e) {
-    e.preventDefault()
-    try {
-      setError("");
-      setLoading(true);
-      await handlePlanGold()
-      history.push('/shares')
-    } catch {
-      setError('Falha ao se cadastrar')
-    }
-    setLoading(false)
-  }
-  {
-    // async function handleSubmitPlatinum(e) {
-    //   e.preventDefault()
-    //   try {
-    //     setError("");
-    //     setLoading(true);
-    //     await handlePlanPlatinum()
-    //     history.push('/shares')
-    //   } catch {
-    //     setError('Falha ao se cadastrar')
-    //   }
-    //   setLoading(false)
-    // }
-    // async function handleSubmitBlack(e) {
-    //   e.preventDefault()
-    //   try {
-    //     setError("");
-    //     setLoading(true);
-    //     await handlePlanBlack()
-    //     history.push('/shares')
-    //   } catch {
-    //     setError('Falha ao se cadastrar')
-    //   }
-    //   setLoading(false)
-    // }
-  }
+  const [idInvest, setIdInvest] = useState('ZQpjks7iBMhDtDwPLiuY')
+  const [idInvest2, setIdInvest2] = useState('ZQpjks7iBM')
 
 
   return (
     <>
       <Sidebar />
       <div id="main-container" className="main-container col-xs-12">
-        <header className="text-center pt-2 mt-2 header-custom">Escolher plano</header>
         {error && <Alert variant="danger">{error}</Alert>}
-        <div className="pl-5 pr-5 pb-3">
-          <div className="mb-3">
-            <h2 className="title-h2-plan">Planos disponíveis para você!</h2>
-            <p>{console.log(possuiPlano)}</p>
-            <h4 className="description-h4-plan">Confira o plano desejado e invista agora mesmo no seu futuro.</h4>
+        <div className="pl-5 pr-5 pb-3 pt-2">
+          <div className="mb-2">
+            <h2 className="title-h2-plan">Captações diponíveis</h2>
+            <h4 className="description-h4-plan">Caso não apareça nenhum plano de investimento, fique calmo, pois provavelmente estaremos proparando novas oportunidades para você.</h4>
           </div>
-          <div className="m-2 justify-content-center" style={{ display: 'flex', }}>
-            <div className="col-md-4 col-xs-12">
-              <p className="text-dark text-center p-title">Plano Liveb</p>
-              <Accordion className="mt-2 mb-2">
-                <Card >
-                  <Card.Text className="text-dark ml-1 mr-1 pt-2">
-                    <li><strong>Investimento LIVEB</strong></li>
-                    <li>2% ao mês (24% bienal)</li>
-                    <li>R$: 1.000,00 cota mínima.</li>
-                    <li>R$: 2.000.000,00 cota máxima.</li>
-                    <li>24 meses de investimento ( 48% lucro total )</li>
-                    <li>Recebimento lucro mensal ou bullet</li>
-                    <li>Saque investimento inicial após 24 meses</li>
-                  </Card.Text>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                    <BiChevronDown className="text-dark" />
-                  </Accordion.Toggle>
-                  <Accordion.Collapse eventKey="0">
-                    <Card.Body className="text-description-color justify-content-center ">
-                      <div className="justify-content-center">
-                        <div className="row">
-                          <div className="col text-center m-3">
-                            <Button disabled={possuiPlano ? true : false} type="submit" onClick={handleSubmitGold}>
-                              Escolher
-                      </Button>
-                          </div>
-                        </div>
-                      </div>
-                    </Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              </Accordion>
+          <div className="ml-2 ml-2 mt-1 mb-2 justify-content-center  " style={{ display: 'flex', }}>
+            <div className="row justify-content-center pt-3">
+              {/* <div className="card p-2 col-md-6 col-xs-12">
+                <img src={ImageDefaultPlan} alt='logo' className='img-fluid' />
+                <li>
+                  <strong>Investimento LIVEB</strong></li>
+                <li>2% ao mês (24% bienal)</li>
+                <li>R$: 1.000,00 cota mínima.</li>
+                <li>R$: 2.000.000,00 cota máxima.</li>
+                <li>24 meses de investimento ( 48% lucro total )</li>
+                <li>Recebimento lucro mensal ou bullet</li>
+                <li>Saque investimento inicial após 24 meses</li>
+                <Link to={`/plan/${idInvest}`}><Button className='w-100 button-plan mt-2'>Saber mais</Button></Link>
+              </div> */}
+              <div className="card p-2 col-md-10 col-xs-12" >
+                <img src={ImageDefaultPlan} alt='logo' className='img-fluid mb-3' />
+                <li className="mb-2">
+                  <strong>Condomínio Tambaú - 2º fase - Liveb Urbanismo</strong></li>
+                <li className="mb-2">Prazo: 24 meses</li>
+                <li className="mb-2">Rentabilidade: 24% a.a</li>
+                <li className="mb-2">Investimento Mínimo: R$ 1000,00</li>
+                <Link to={'/plan/ZQpjks7iBM'}><Button className='w-100 button-plan mt-2'>Saber mais</Button></Link>
+              </div>
+
 
             </div>
           </div>

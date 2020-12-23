@@ -1082,7 +1082,7 @@ export default function Profile() {
   const bankAccountTypeRef = useRef('');
 
   const { updateProfile, nome, email, cpf, rg, logout, phone, dataNacimento, cep, genero, endereco, enderecoNumero, enderecoComplemento, enderecoBairro,
-    enderecoEstado, enderecoCidade, cidadeNatal, instituicao, conta, agencia, tipoConta } = useAuth();
+    enderecoEstado, enderecoCidade, cidadeNatal, instituicao, conta, agencia, tipoConta, userId } = useAuth();
 
   const [cpfs, setCpfs] = useState(cpf)
   const [rgs, setRgs] = useState(rg)
@@ -1094,6 +1094,12 @@ export default function Profile() {
   const [button, setButton] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [user, setUser] = useState()
+
+  const [copySuccess, setCopySuccess] = useState('');
+  const textAreaRef = useRef(null);
+
+
   const [selectedTag, setSelectedTag] = useState([])
 
   const history = useHistory();
@@ -1139,6 +1145,8 @@ export default function Profile() {
     }
     setLoading(false)
   }
+
+
   useEffect(() => {
     setCpfs(cpf)
     setRgs(rg)
@@ -1151,7 +1159,10 @@ export default function Profile() {
     <>
       <Sidebar />
       <div id="main-container" className="main-container col-xs-12 p-2">
-        <header className="text-center pt-2 mt-2 header-custom">Perfil</header>
+        <div className="mb-3">
+          <h2 className="title-h2-plan">Olá {nome}!</h2>
+          <h4 className="description-h4-plan">Seu código de usuário é: <h6>{userId}</h6></h4>
+        </div>
         {error && <Alert variant="danger">{error}</Alert>}
         <br />
         <div className="card" style={{ padding: '31px' }}>
@@ -1242,13 +1253,12 @@ export default function Profile() {
           </Form>
         </div>
 
-        <div className="card justify-content-center">
-          <div className="row">
-            <div className="col text-center m-3">
-              <Button className="" onClick={handleLogout}>desconectar</Button>
-            </div>
-          </div>
+
+        <div className="d-flex col-md-12 col-xs-12 justify-content-center">
+          <Button className="w-50 button-logout" onClick={handleLogout}>desconectar</Button>
         </div>
+
+
 
       </div >
     </>

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { Button, Form, Alert, InputGroup } from 'react-bootstrap'
-
+import Liveb from '../../assets/bg-liveb.jpg'
 import { useAuth } from '../../context/authContext'
 import { Link, useHistory } from 'react-router-dom'
 
@@ -53,14 +53,14 @@ export default function SignUp() {
   }
   return (
     <>
-      <div id="" className=" col-xs-12 p-2 auth-wrapper bg-dark" style={{ width: '100vw', }}>
+      <div id="" className=" col-xs-12 p-2 auth-wrapper" style={{ width: '100vw', backgroundImage: `url(${Liveb})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundAttachment: 'fixed' }}>
         <div className="auth-content">
-          <div className="auth-bg">
+          {/* <div className="auth-bg">
             <span className="r" />
             <span className="r s" />
             <span className="r s" />
             <span className="r" />
-          </div>
+          </div> */}
           <div className="card">
             <div className="card-body text-center">
               <h2 className="text-center mb-4 text-dark">Se torne um Liveber</h2>
@@ -121,7 +121,7 @@ export default function SignUp() {
                   <Form.Control id="phone" type="text" ref={phoneRef} placeholder="(11) 9 9999-9999" required value={phones} onChange={e => { setPhones(phoneMask(e.target.value)) }} maxLength={14} />
                 </Form.Group>
 
-                <Button disabled={loading} className="w-100 text-center mt-2 button-form btn-dark" type="submit">Cadastrar</Button>
+                <Button disabled={loading} className="w-100 text-center mt-2 button-plan" type="submit">Cadastrar</Button>
               </Form>
               <div className="w-100 text-center mt-2">
                 Já é um investidor? <Link to="/login">Acesse</Link>

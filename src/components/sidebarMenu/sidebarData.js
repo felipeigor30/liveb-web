@@ -14,27 +14,15 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Perfil',
-    path: '/profile',
-    icon: <FaUserCircle />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Planos',
+    title: 'Investir',
     path: '/plan',
-    icon: <GiPaperPlane />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Cotas',
-    path: '/shares',
     icon: <AiFillDollarCircle />,
     cName: 'nav-text'
   },
   {
-    title: 'Contrato',
-    path: '/contract',
-    icon: <FaFileContract />,
+    title: 'Perfil',
+    path: '/profile',
+    icon: <FaUserCircle />,
     cName: 'nav-text'
   },
   {
