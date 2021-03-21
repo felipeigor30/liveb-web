@@ -55,12 +55,6 @@ export default function SignUp() {
     <>
       <div id="" className=" col-xs-12 p-2 auth-wrapper" style={{ width: '100vw', backgroundImage: `url(${Liveb})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundAttachment: 'fixed' }}>
         <div className="auth-content">
-          {/* <div className="auth-bg">
-            <span className="r" />
-            <span className="r s" />
-            <span className="r s" />
-            <span className="r" />
-          </div> */}
           <div className="card">
             <div className="card-body text-center">
               <h2 className="text-center mb-4 text-dark">Se torne um Liveber</h2>
@@ -118,7 +112,7 @@ export default function SignUp() {
 
                 <Form.Group id="phone">
                   <Form.Label>Telefone</Form.Label>
-                  <Form.Control id="phone" type="text" ref={phoneRef} placeholder="(11) 9 9999-9999" required value={phones} onChange={e => { setPhones(phoneMask(e.target.value)) }} maxLength={14} />
+                  <Form.Control id="phone" type="text" ref={phoneRef} placeholder="(11) 9 9999-9999" required value={phones} onChange={e => { setPhones(phoneMask(e.target.value)) }} maxLength={15} />
                 </Form.Group>
 
                 <Button disabled={loading} className="w-100 text-center mt-2 button-plan" type="submit">Cadastrar</Button>

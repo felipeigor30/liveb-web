@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
-
+import React from 'react'
 import Sidebar from '../sidebarMenu'
-import { Button } from 'react-bootstrap'
 import { RiNewspaperFill } from 'react-icons/ri'
-export default function Contract() {
 
+export default function Contract() {
   return (
     <>
       <Sidebar />

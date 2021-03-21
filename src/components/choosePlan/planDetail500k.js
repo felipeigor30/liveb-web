@@ -100,7 +100,7 @@ export default function PlanDetail500() {
                   </div>
                   <hr />
                   <div className='col-md-12 col-xs-12 mt-2 align-bottom'>
-                    <Button className='w-100 button-plan' type="submit" disabled={possuiCotaComprada ? true : false} >Investir</Button>
+                    <Button className='w-100 button-plan' type="submit" disabled={true} >Investir</Button>
                   </div>
                 </div>
               </div>
@@ -199,10 +199,42 @@ export default function PlanDetail500() {
                 </ul>
               </Tab>
               <Tab eventKey="juridico" title="Jurídico">
-                <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2020/12/cartao-cnpj.pdf" target="_blank">
-                  <AiOutlineDownload />
-                  <span className="">Cartão CNPJ - Baixar</span>
-                </a>
+                <li>
+                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2020/12/cartao-cnpj.pdf" target="_blank">
+                    <AiOutlineDownload />
+                    <span className="">Cartão CNPJ - Baixar</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/CND-ESTADUAL-LIVEB-INVESTIMENTOS.pdf" target="_blank">
+                    <AiOutlineDownload />
+                    <span className="">Certidão Negativa de Débitos Estadual</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/CND-FEDERAIS-LIVEB-INVESTIMENTOS.pdf" target="_blank">
+                    <AiOutlineDownload />
+                    <span className="">Certidão Negativa de Débitos Federal</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/CND-TRABALHISTA-LIVEB-INVESTIMENTOS.pdf" target="_blank">
+                    <AiOutlineDownload />
+                    <span className="">Certidão Negativa de Débitos Trabalhista</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/Certidao6031416-LIVEB.pdf" target="_blank">
+                    <AiOutlineDownload />
+                    <span className="">Certidão Estadual de Distribuições Cíveis</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/TRT15_ceat_37868391000170.pdf" target="_blank">
+                    <AiOutlineDownload />
+                    <span className="">Certidão de Justiça do Trabalho</span>
+                  </a>
+                </li>
               </Tab>
               <Tab eventKey="prospecto" title="Prospecto">
                 <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2020/12/Prospecto-LIVEB-URBANISMO.pdf" target="_blank">

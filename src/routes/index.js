@@ -6,6 +6,7 @@ import SignUp from '../components/signup'
 import ChoosePlan from '../components/choosePlan'
 import PlanDetail from '../components/choosePlan/planDetail'
 import PlanDetail500 from '../components/choosePlan/planDetail500k'
+import PlanDetail1M from '../components/choosePlan/planDetail1m'
 
 import Login from '../components/login'
 import ForgotPass from '../components/forgotPass'
@@ -45,8 +46,9 @@ export default function RouterProvider() {
             <PrivateRoute path="/plan/ZQpjks7iBMhDtDwPLiuY" component={PlanDetail} exact />
             <PrivateRoute path="/plan/ZQpjks7iBMhDtDwPLiuY/contract" component={Contract} exact />
             <PrivateRoute path="/plan/ZQpjks7iBM" component={PlanDetail500} exact />
+            <PrivateRoute path="/plan/ZQpjks7iB1" component={PlanDetail1M} exact />
             <PrivateRoute path="/plan/ZQpjks7iBM/contract" component={Contract} exact />
-
+            <PrivateRoute path="/plan/ZQpjks7iB1/contract" component={Contract} exact />
             <PrivateRoute path="/support" component={Support} exact />
             <Route path="/login" component={Login} />
             <PrivateRoute component={NotFound} />

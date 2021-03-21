@@ -1146,7 +1146,15 @@ export default function Profile() {
     setLoading(false)
   }
 
+  const opt = [
+    {
+      tipo: 'corrente'
+    },
+    {
+      tipo: 'poupanca'
+    }
 
+  ]
   useEffect(() => {
     setCpfs(cpf)
     setRgs(rg)
@@ -1201,7 +1209,7 @@ export default function Profile() {
             </Form.Group>
             <Form.Group id="address" className="col-md-4 col-xs-12">
               <Form.Label>Endereco</Form.Label>
-              <Form.Control id="address" ref={addressRef} type="text" disabled={button} defaultValue={endereco} maxLength={14} ></Form.Control>
+              <Form.Control id="address" ref={addressRef} type="text" disabled={button} defaultValue={endereco} ></Form.Control>
             </Form.Group>
             <Form.Group id="addressNumber" className="col-md-4 col-xs-12">
               <Form.Label>Numero</Form.Label>
@@ -1216,7 +1224,7 @@ export default function Profile() {
               <Form.Control id="neighborhood" ref={neighborhoodRef} type="text" disabled={button} defaultValue={enderecoBairro} maxLength={14} ></Form.Control>
             </Form.Group>
             <Form.Group id="city" className="col-md-4 col-xs-12">
-              <Form.Label>cidade</Form.Label>
+              <Form.Label>Cidade</Form.Label>
               <Form.Control id="city" ref={cityRef} type="text" disabled={button} defaultValue={enderecoCidade} ></Form.Control>
             </Form.Group>
             <Form.Group id="cityState" className="col-md-4 col-xs-12">
@@ -1236,12 +1244,10 @@ export default function Profile() {
               <Form.Control id="bankAccount" ref={bankAccountRef} type="text" disabled={button} defaultValue={conta} ></Form.Control>
             </Form.Group>
             <Form.Group id="bankAccountType" className="col-md-4 col-xs-12">
-
               <Form.Label>Conta(tipo)</Form.Label>
-              <Form.Control id="bankAccountType" ref={bankAccountTypeRef} defaultValue={tipoConta} width='200px' disabled={button}
-
-              />
+              <Form.Control id="bankAccountType" ref={bankAccountTypeRef} defaultValue={tipoConta} width='200px' disabled={button} />
             </Form.Group>
+
             <Form.Group id="hometown" className="col-md-4 col-xs-12">
               <Form.Label>Cidade natal</Form.Label>
               <Form.Control id="hometown" ref={hometownRef} type="text" disabled={button} defaultValue={cidadeNatal} onChange={e => { setRgs(rgMask(e.target.value)) }} maxLength={14} ></Form.Control>

@@ -10,7 +10,7 @@ import FlatList from 'flatlist-react'
 
 export default function Dashboard() {
 
-  const { nome, valorInvestido, payments, listPaymentsReceivable, payResult, qtdRecebida } = useAuth();
+  const { nome, valorInvestido, payments, listPaymentsReceivable, qtdRecebida, novoValorInvestido } = useAuth();
   const [show, setShow] = useState(false);
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -29,50 +29,36 @@ export default function Dashboard() {
     try {
       setError("");
       setLoading(true);
-      setButtonList(!buttonList)
+      setButtonList(!buttonList);
       await listPaymentsReceivable()
-
     } catch {
       setError('Falhou ao tentar atualizar')
     }
     setLoading(false)
   }
-  const renderPaymentDate = (payments, idx) => {
-    return (
-      <li key={idx} className="text-left">
-        <h6>Pagamento dia {payments.pagar}
-        </h6>
-      </li>
-    );
-  }
-  const renderPaymentMonthlyProfitability = (payments, idx) => {
-    return (
-      <li key={idx} className="text-center">
-        <h6>R$ {payments.valorReceber},00</h6>
-      </li>
-    );
-  }
-  const renderPaymentAmountReceivable = (payments, idx) => {
-    return (
-      <li key={idx} className="text-center">
-        <h6>{payments.rentabilidade}%a.m</h6>
-      </li>
-    );
-  }
-  const renderPaymentStatus = (payments, idx) => {
-    return (
-      <li key={idx} className="text-center" >
-        {!payments.statusPagamento ? (<h6 style={payments.statusPagamento === true
-          ? { color: 'green', textTransform: 'uppercase' }
-          : { color: 'black', textTransform: 'uppercase' }
-        }>À receber</h6>) : (<h6 style={payments.statusPagamento === true
-          ? { color: 'green', textTransform: 'uppercase' }
-          : { color: 'black', textTransform: 'uppercase' }
-        }>Pago</h6>)}
-      </li>
 
-    );
+
+  const renderPaymentDate = (payments, idx) => {
+    if (payments.disponivel === true) {
+      return (
+        <tr key={idx} className="text-center">
+          <td><h6>{payments.pagar}</h6></td>
+          <td><h6>{payments.rentabilidade}% {payments.opcaoInvestimento === 'Bullet' ? (' ') : ('a.m')}</h6></td>
+          <td><h6>R$ {payments.valorReceber},00</h6></td>
+          <td><h6>{payments.opcaoInvestimento}</h6></td>
+          <td>{!payments.statusPagamento ? (<h6 style={payments.statusPagamento === true
+            ? { color: 'green', textTransform: 'uppercase' }
+            : { color: 'black', textTransform: 'uppercase' }
+          }>À receber</h6>) : (<h6 style={payments.statusPagamento === true
+            ? { color: 'green', textTransform: 'uppercase' }
+            : { color: 'black', textTransform: 'uppercase' }
+          }>Pago</h6>)}</td>
+        </tr>
+
+      );
+    } else return
   }
+
   return (
     <>
       <Sidebar />
@@ -82,7 +68,15 @@ export default function Dashboard() {
           <Modal.Body>
             <section className="pb-2">
               <h5>Valor ativo na carteira</h5>
-              <p>Valor total que você tem invstido na LIVEB que ainda esta ativo em algum investimento.</p>
+              <p>É o valor ativo investido atualmente na Liveb.</p>
+            </section>
+            <section className="pb-2">
+              <h5>Valor já investido na Liveb</h5>
+              <p>É o valor que você já investiu, levando em consideração todas os seus investimentos feitos na Liveb.</p>
+            </section>
+            <section className="pb-2">
+              <h5>Você já recebeu</h5>
+              <p>Quantidade que você já recebeu da Liveb.</p>
             </section>
           </Modal.Body>
 
@@ -105,7 +99,7 @@ export default function Dashboard() {
                       <>
                         <div>
                           <li>
-                            <strong>Valor investido na Liveb: </strong>
+                            <strong>Valor já investido na Liveb: </strong>
                             <span>R$ {valorInvestido}</span>
                           </li>
                         </div>
@@ -123,15 +117,14 @@ export default function Dashboard() {
                 <div className="mt-2 d-flex">
                   <div>
                     <div>
-                      {!ativosHidden ? (<h2 className="box-value">R$ {qtdRecebida}</h2>) : (<div className="hidden-box" />)}
+                      {!ativosHidden ? (<h2 className="box-value">R$ {qtdRecebida},00</h2>) : (<div className="hidden-box" />)}
                     </div>
                     {!ativosHidden &&
                       <>
                         <div>
                           <div className='subvalues'>
                             <li>
-                              <strong>Você já recebeu: </strong>
-                              <span>R$ {qtdRecebida}</span>
+
                             </li>
                           </div>
                         </div>
@@ -160,42 +153,18 @@ export default function Dashboard() {
                     <thead>
                       <tr>
                         <th scope="col">Data pagamento</th>
-                        <th >Rentabilidade mensal</th>
+                        <th scope="col">Rentabilidade</th>
                         <th scope="col">Valor a receber</th>
+                        <th scope="col">Modo investimento</th>
                         <th scope="col">Status</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="text-center">
-                        <td>
-                          <FlatList
-                            list={payments}
-                            renderItem={renderPaymentDate}
-                            displayRow={false}
-                            renderWhenEmpty={() => <div>Vazio</div>} />
-                        </td>
-                        <td>
-                          <FlatList
-                            list={payResult}
-                            renderItem={renderPaymentAmountReceivable}
-                            displayRow={false}
-                            renderWhenEmpty={() => <div>Vazio</div>} />
-                        </td>
-                        <td>
-                          <FlatList
-                            list={payResult}
-                            renderItem={renderPaymentMonthlyProfitability}
-                            displayRow={false}
-                            renderWhenEmpty={() => <div>Vazio</div>} />
-                        </td>
-                        <td>
-                          <FlatList
-                            list={payments}
-                            renderItem={renderPaymentStatus}
-                            displayRow={false}
-                            renderWhenEmpty={() => <div>Vazio</div>} />
-                        </td>
-                      </tr>
+                      <FlatList
+                        list={payments}
+                        renderItem={renderPaymentDate}
+                        displayRow={false}
+                        renderWhenEmpty={() => <div> </div>} />
                     </tbody>
                   </Table>
                 </div>
