@@ -1,22 +1,15 @@
-import React, { useState } from 'react'
-import { Button, Alert } from 'react-bootstrap'
-import { useHistory, Link } from 'react-router-dom'
-import { useAuth } from '../../context/authContext'
+import React from 'react'
+import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import './styles.css'
 import ImageDefaultPlan from '../choosePlan/novo/imagem13.png'
 import Sidebar from '../sidebarMenu'
 
 export default function ChoosePlan() {
-  const [error, setError] = useState('')
-  const [idInvest, setIdInvest] = useState('ZQpjks7iBMhDtDwPLiuY')
-  const [idInvest2, setIdInvest2] = useState('ZQpjks7iBM')
-
-
   return (
     <>
       <Sidebar />
       <div id="main-container" className="main-container col-xs-12">
-        {error && <Alert variant="danger">{error}</Alert>}
         <div className="pl-5 pr-5 pb-3 pt-2">
           <div className="mb-2">
             <h2 className="title-h2-plan">Captações diponíveis</h2>

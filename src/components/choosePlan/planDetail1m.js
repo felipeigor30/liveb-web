@@ -26,15 +26,10 @@ import { AiOutlineDownload } from "react-icons/ai"
 export default function PlanDetail500() {
 
   const { saveAmountQuotas, handlePlanGold, } = useAuth();
-  const [count, setCount] = useState(1);
-  const [auxiliar, setAuxiliar] = useState();
   const [valor, setValor] = useState(1000);
-  const [valorInt, setValorInt] = useState();
-  const [loading, setLoading] = useState(false);
   const history = useHistory();
   const [error, setError] = useState('');
   const [checkBox, setCheckBox] = useState('');
-  const [idInvest, setIdInvest] = useState('ZQpjks7iBM');
   const [investimento, setInvestimento] = useState();
 
   const quantidadeCotas = (investimento / 1000);
@@ -45,13 +40,11 @@ export default function PlanDetail500() {
     e.preventDefault()
     try {
       setError("");
-      setLoading(true);
+
       const recipe = valor * quantidadeCotas
       const aux = (checkBox === "Bullet" ? 38.8 : 1.5)
-
       const valorRecebimentoLiveb = (recipe * aux) / 100
       setValor(recipe.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'))
-      setValorInt(valorRecebimentoLiveb)
       await handlePlanGold()
       await saveAmountQuotas(quantidadeCotas, recipe, valorRecebimentoLiveb, checkBox)
       history.push(`/plan/ZQpjks7iB1/contract`)
@@ -59,7 +52,6 @@ export default function PlanDetail500() {
     } catch {
       setError('Falha ao se cadastrar')
     }
-    setLoading(false)
   }
 
   return (
@@ -99,7 +91,7 @@ export default function PlanDetail500() {
                       O valor a ser investido deve ser multiplo de R$ 1.000,00
                     </Form.Text>
                   </Form.Group>
-                  <p className="text-dark ">Quantidade de cotas: {(investimento % 1000) == 0 ? quantidadeCotas : 0} cotas</p>
+                  <p className="text-dark ">Quantidade de cotas: {(investimento % 1000) === 0 ? quantidadeCotas : 0} cotas</p>
                   <p className="text-dark">Valor que será investido <strong>R${investimento == null ? 0 : teste.toFixed(2)
                     .replace('.', ',')
                     .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</strong></p>
@@ -127,7 +119,7 @@ export default function PlanDetail500() {
                       <span className="span-end">Termina em 07/04/2021</span>
                     </div>
                     <div>
-                      <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2020/12/Prospecto-LIVEB-URBANISMO.pdf" target="_blank">
+                      <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2020/12/Prospecto-LIVEB-URBANISMO.pdf" target="_blank" rel="noreferrer">
                         <AiOutlineDownload />
                         <span className="span-end">Prospecto</span>
                       </a>
@@ -136,7 +128,7 @@ export default function PlanDetail500() {
                   <hr />
 
                   <div className='col-md-12 col-xs-12 mt-2 align-bottom'>
-                    <Button className='w-100 button-plan' type="submit" disabled={(investimento % 1000) == 0 && investimento > 0 && checkBox != '' ? false : true}>Investir</Button>
+                    <Button className='w-100 button-plan' type="submit" disabled={(investimento % 1000) === 0 && investimento > 0 && checkBox !== '' ? false : true}>Investir</Button>
                   </div>
                 </div>
               </div>
@@ -146,7 +138,7 @@ export default function PlanDetail500() {
             <Tabs defaultActiveKey="empresa" transition={false} id="noanim-tab-example">
               <Tab eventKey="empresa" title="Empresa">
                 <div className="row">
-                  <img src={LogoUrban} className="img-fluid col-md-2 col-xs-12" />
+                  <img src={LogoUrban} className="img-fluid col-md-2 col-xs-12" alt="Liveb Urbanismo" />
                   <p className="col-md-10 col-xs-12 " style={{ fontSize: '18px', lineHeight: '1.5' }}><strong>LIVEB URBANISMO</strong> é uma incorporadora, especializada em condomínios de alto padrão e loteamentos abertos, vinculada a um grupo com mais de 10 anos de mercado.</p>
                 </div>
               </Tab>
@@ -291,54 +283,54 @@ obras estão previstas para entrega em dezembro de 2023.</p>
               </Tab>
               <Tab eventKey="juridico" title="Jurídico">
                 <li>
-                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2020/12/cartao-cnpj.pdf" target="_blank">
+                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2020/12/cartao-cnpj.pdf" target="_blank" rel="noreferrer">
                     <AiOutlineDownload />
                     <span className="">Cartão CNPJ - Baixar</span>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/CND-ESTADUAL-LIVEB-INVESTIMENTOS.pdf" target="_blank">
+                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/CND-ESTADUAL-LIVEB-INVESTIMENTOS.pdf" target="_blank" rel="noreferrer">
                     <AiOutlineDownload />
                     <span className="">Certidão Negativa de Débitos Estadual</span>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/CND-FEDERAIS-LIVEB-INVESTIMENTOS.pdf" target="_blank">
+                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/CND-FEDERAIS-LIVEB-INVESTIMENTOS.pdf" target="_blank" rel="noreferrer">
                     <AiOutlineDownload />
                     <span className="">Certidão Negativa de Débitos Federal</span>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/CND-TRABALHISTA-LIVEB-INVESTIMENTOS.pdf" target="_blank">
+                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/CND-TRABALHISTA-LIVEB-INVESTIMENTOS.pdf" target="_blank" rel="noreferrer">
                     <AiOutlineDownload />
                     <span className="">Certidão Negativa de Débitos Trabalhista</span>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/Certidao6031416-LIVEB.pdf" target="_blank">
+                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/Certidao6031416-LIVEB.pdf" target="_blank" rel="noreferrer">
                     <AiOutlineDownload />
                     <span className="">Certidão Estadual de Distribuições Cíveis</span>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/TRT15_ceat_37868391000170.pdf" target="_blank">
+                  <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/01/TRT15_ceat_37868391000170.pdf" target="_blank" rel="noreferrer">
                     <AiOutlineDownload />
                     <span className="">Certidão de Justiça do Trabalho</span>
                   </a>
                 </li>
               </Tab>
               <Tab eventKey="prospecto" title="Prospecto">
-                <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/03/Prospecto-Condomi%CC%81nio-Bota%CC%82nico-1-Sales.pdf" target="_blank">
+                <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/03/Prospecto-Condomi%CC%81nio-Bota%CC%82nico-1-Sales.pdf" target="_blank" rel="noreferrer">
                   <AiOutlineDownload />
                   <span className="">Prospecto - Baixar</span>
                 </a>
               </Tab>
               <Tab eventKey="contrato" title="Contrato Demo">
-                <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/03/Prospecto-Condomi%CC%81nio-Bota%CC%82nico-1-Sales.pdf" target="_blank">
+                <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/03/Prospecto-Condomi%CC%81nio-Bota%CC%82nico-1-Sales.pdf" target="_blank" rel="noreferrer">
                   <AiOutlineDownload />
                   <span className="">Contrato Bullet Demo</span>
                 </a>
-                <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/03/Prospecto-Condomi%CC%81nio-Bota%CC%82nico-1-Sales.pdf" target="_blank">
+                <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/03/Prospecto-Condomi%CC%81nio-Bota%CC%82nico-1-Sales.pdf" target="_blank" rel="noreferrer">
                   <AiOutlineDownload />
                   <span className="">Contrato Juros Mensal Demo</span>
                 </a>

@@ -3,7 +3,6 @@ import { auth, firestore } from '../services/db/firebaseConnect'
 import firebase from 'firebase'
 import handleData from '../services/handleData'
 const AuthContext = React.createContext()
-
 export function useAuth() {
   return useContext(AuthContext)
 }
@@ -33,19 +32,15 @@ export function AuthProvider({ children }) {
   const [cidadeNatal, setCidadeNatal] = useState();
   const [tipoConta, setTipoConta] = useState();
   const [payments, setPayments] = useState([])
-  const [payResult, setPayResult] = useState([])
+
   const [qtdCotas, setQtdCotas] = useState();
   const [valorInvestido, setValorInvestido] = useState();
   const [planoEscolhido, setPlanoEscolhido] = useState();
   const [plano, setPlano] = useState();
-  const [rentabilidade, setRentabilidade] = useState()
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true)
   const [qtdRecebida, setQtdRecebida] = useState(0)
   const [userId, setUserId] = useState()
-  const [tipoInvestimento, setTipoInvestimento] = useState([]);
-  const [exemplo, setExemplo] = useState([])
-  const [exemploId, setExemploId] = useState()
   const [novoValorInvestido, setNovoValorInvestido] = useState()
 
   function signup(name, email, password, cpf, rg, phone) {
@@ -116,6 +111,7 @@ export function AuthProvider({ children }) {
       const result = a + valor
       setNovoValorInvestido(result)
     })
+
     firestore.collection('users').doc(userID).update({
       quantidadeValorCotas: count,
       valorInvestido: valor,
@@ -235,10 +231,9 @@ export function AuthProvider({ children }) {
           var tipoConta = doc.data().tipoConta
           var possuiPlano = doc.data().possuiPlano
           var possuiCotaComprada = doc.data().possuiCotaComprada
-          var rentabil = doc.data().rentabilidade
+
           var qtdRecebido = doc.data().qtdRecebida
           setQtdRecebida(qtdRecebido)
-          setRentabilidade(rentabil)
           setPossuiCotaComprada(possuiCotaComprada)
           setPossuiPlano(possuiPlano)
           setNome(nome)
@@ -298,11 +293,9 @@ export function AuthProvider({ children }) {
     cidadeNatal,
     tipoConta,
     payments,
-    payResult,
     possuiPlano,
     possuiCotaComprada,
     qtdRecebida,
-    tipoInvestimento,
     resetPassword,
     listPaymentsReceivable,
     login,
@@ -311,8 +304,6 @@ export function AuthProvider({ children }) {
     saveAmountQuotas,
     logout,
     updateProfile,
-    exemplo,
-    exemploId,
     novoValorInvestido
 
 

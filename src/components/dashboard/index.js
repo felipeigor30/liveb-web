@@ -10,10 +10,8 @@ import FlatList from 'flatlist-react'
 
 export default function Dashboard() {
 
-  const { nome, valorInvestido, payments, listPaymentsReceivable, qtdRecebida, novoValorInvestido } = useAuth();
+  const { nome, valorInvestido, payments, listPaymentsReceivable, qtdRecebida } = useAuth();
   const [show, setShow] = useState(false);
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
   const [buttonList, setButtonList] = useState(false);
   const [ativosHidden, setAtivosHidden] = useState(true);
 
@@ -27,14 +25,9 @@ export default function Dashboard() {
   async function handlePay(e) {
     e.preventDefault()
     try {
-      setError("");
-      setLoading(true);
       setButtonList(!buttonList);
       await listPaymentsReceivable()
-    } catch {
-      setError('Falhou ao tentar atualizar')
-    }
-    setLoading(false)
+    } catch { }
   }
 
 
@@ -106,7 +99,7 @@ export default function Dashboard() {
                       </>
                     }
                   </div>
-                  <a onClick={handleShow} >
+                  <a onClick={handleShow} href>
                     <BiHelpCircle size='24px' className="ml-2" />
                   </a>
                 </div>
@@ -131,7 +124,7 @@ export default function Dashboard() {
                       </>
                     }
                   </div>
-                  <a onClick={handleShow} >
+                  <a onClick={handleShow} href>
                     <BiHelpCircle size='24px' className="ml-2" />
                   </a>
                 </div>
