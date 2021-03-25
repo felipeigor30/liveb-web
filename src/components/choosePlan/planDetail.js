@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { useAuth } from '../../context/authContext';
 import { Button, Form, Alert } from 'react-bootstrap';
@@ -8,7 +8,7 @@ import ImageDefaultPlan from '../choosePlan/img-default-plan.jpg'
 
 
 export default function PlanDetail() {
-  const { saveAmountQuotas, possuiCotaComprada, handlePlanGold, possuiPlano } = useAuth();
+  const { saveAmountQuotas, possuiCotaComprada, handlePlanGold } = useAuth();
   const [count, setCount] = useState(1);
   const [valor, setValor] = useState(1000);
   const [valorInt, setValorInt] = useState();
@@ -35,13 +35,6 @@ export default function PlanDetail() {
     }
     setLoading(false)
   }
-
-  useEffect(() => {
-    console.log(count)
-    console.log(valor)
-
-
-  }, [])
   return (
     <>
       <Sidebar />

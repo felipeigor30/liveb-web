@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import { useAuth } from '../../context/authContext'
 import { useHistory } from 'react-router-dom'
 import { Form, Button, Alert } from 'react-bootstrap'
-
+import Select from 'react-select'
 import { cpfMask, rgMask, phoneMask } from '../masks'
 
 
@@ -11,6 +11,7 @@ import Sidebar from '../sidebarMenu'
 
 import './styles.css'
 export default function Profile() {
+
   const options = [
     {
       value: "001 BANCO DO BRASIL", label: "001 BANCO DO BRASIL"
@@ -1075,7 +1076,7 @@ export default function Profile() {
   const neighborhoodRef = useRef('');
   const cityRef = useRef('');
   const cityStateRef = useRef('');
-  const bankRef = useRef('');
+  const bankRef = useRef([]);
   const agencyRef = useRef('');
   const bankAccountRef = useRef('');
   const hometownRef = useRef('');
@@ -1231,9 +1232,22 @@ export default function Profile() {
               <Form.Label>Estado</Form.Label>
               <Form.Control id="cityState" ref={cityStateRef} type="text" disabled={button} defaultValue={enderecoEstado} ></Form.Control>
             </Form.Group>
+            {/* <Form.Group id="bank" className="col-md-4 col-xs-12">
+              <Form.Label>Banco</Form.Label>
+              <Select
+                onChange={setBanks}
+                classNamePrefix="Selecione seu banco"
+                defaultValue={banks}
+                isDisabled={button}
+                isClearable={true}
+                isSearchable={true}
+                name="bank"
+                options={options}
+              />
+            </Form.Group> */}
             <Form.Group id="bank" className="col-md-4 col-xs-12 select-edit">
               <Form.Label>Banco</Form.Label>
-              <Form.Control id="bank" ref={bankRef} defaultValue={instituicao} width='200px' disabled={button} />
+              <Form.Control id="bank" ref={bankRef} value={instituicao} width='200px' disabled={button} />
             </Form.Group>
             <Form.Group id="agency" className="col-md-4 col-xs-12">
               <Form.Label>agencia</Form.Label>

@@ -10,7 +10,7 @@ import FlatList from 'flatlist-react'
 
 export default function Dashboard() {
 
-  const { nome, valorInvestido, payments, listPaymentsReceivable, qtdRecebida } = useAuth();
+  const { nome, valorInvestido, payments, listPaymentsReceivable, qtdRecebida, auxiliar } = useAuth();
   const [show, setShow] = useState(false);
   const [buttonList, setButtonList] = useState(false);
   const [ativosHidden, setAtivosHidden] = useState(true);
@@ -86,14 +86,14 @@ export default function Dashboard() {
                 <div className="mt-2 d-flex">
                   <div>
                     <div>
-                      {!ativosHidden ? (<h2 className="box-value">{valorInvestido}</h2>) : (<div className="hidden-box" />)}
+                      {!ativosHidden ? (<h2 className="box-value">R$ {auxiliar},00</h2>) : (<div className="hidden-box" />)}
                     </div>
                     {!ativosHidden &&
                       <>
                         <div>
                           <li>
                             <strong>Valor já investido na Liveb: </strong>
-                            <span>R$ {valorInvestido}</span>
+                            <span>R$ {auxiliar}</span>
                           </li>
                         </div>
                       </>

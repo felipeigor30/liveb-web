@@ -1,5 +1,6 @@
 *{
-  line-height: 100%;
+    line-height: 100%;
+    -webkit-overflow-scrolling: touch;
     text-decoration: none;
     margin: 0;
     padding: 0;

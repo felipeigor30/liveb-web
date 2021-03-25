@@ -6,8 +6,6 @@ const AuthContext = React.createContext()
 export function useAuth() {
   return useContext(AuthContext)
 }
-
-
 export function AuthProvider({ children }) {
 
   const [nome, setNome] = useState();
@@ -32,7 +30,6 @@ export function AuthProvider({ children }) {
   const [cidadeNatal, setCidadeNatal] = useState();
   const [tipoConta, setTipoConta] = useState();
   const [payments, setPayments] = useState([])
-
   const [qtdCotas, setQtdCotas] = useState();
   const [valorInvestido, setValorInvestido] = useState();
   const [planoEscolhido, setPlanoEscolhido] = useState();
@@ -42,6 +39,7 @@ export function AuthProvider({ children }) {
   const [qtdRecebida, setQtdRecebida] = useState(0)
   const [userId, setUserId] = useState()
   const [novoValorInvestido, setNovoValorInvestido] = useState()
+  const [auxiliar, setAuxiliar] = useState()
 
   function signup(name, email, password, cpf, rg, phone) {
     return (
@@ -77,6 +75,7 @@ export function AuthProvider({ children }) {
             cidadeNatal: '',
             tipoConta: '',
             qtdRecebida: 0,
+            auxiliar: '0'
           })
         })
     )
@@ -231,7 +230,7 @@ export function AuthProvider({ children }) {
           var tipoConta = doc.data().tipoConta
           var possuiPlano = doc.data().possuiPlano
           var possuiCotaComprada = doc.data().possuiCotaComprada
-
+          var auxiliar = doc.data().auxiliar
           var qtdRecebido = doc.data().qtdRecebida
           setQtdRecebida(qtdRecebido)
           setPossuiCotaComprada(possuiCotaComprada)
@@ -242,6 +241,7 @@ export function AuthProvider({ children }) {
           setRg(rg)
           setQtdCotas(qtdCotas)
           setValorInvestido(valorInvestido)
+          setAuxiliar(auxiliar)
           setPlanoEscolhido(planoEscolhido)
           setPlano(numPlano)
           setPhone(phone)
@@ -304,8 +304,8 @@ export function AuthProvider({ children }) {
     saveAmountQuotas,
     logout,
     updateProfile,
-    novoValorInvestido
-
+    novoValorInvestido,
+    auxiliar
 
 
   }
