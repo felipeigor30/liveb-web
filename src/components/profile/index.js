@@ -1247,7 +1247,7 @@ export default function Profile() {
             </Form.Group> */}
             <Form.Group id="bank" className="col-md-4 col-xs-12 select-edit">
               <Form.Label>Banco</Form.Label>
-              <Form.Control id="bank" ref={bankRef} value={instituicao} width='200px' disabled={button} />
+              <Form.Control id="bank" ref={bankRef} defaultValue={instituicao} width='200px' disabled={button} />
             </Form.Group>
             <Form.Group id="agency" className="col-md-4 col-xs-12">
               <Form.Label>agencia</Form.Label>

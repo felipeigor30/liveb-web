@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './styles.css'
+import { useAuth } from '../../context/authContext'
 import { FaBars } from 'react-icons/fa'
-import { AiOutlineClose } from 'react-icons/ai'
+import { AiOutlineClose, AiOutlineLogout } from 'react-icons/ai'
 import { SidebarData } from './sidebarData'
 import { IconContext } from 'react-icons'
 export default function Sidebar() {
   const [sidebar, setSidebar] = useState(false)
-
+  const { logout } = useAuth();
   const showSidebar = () => setSidebar(!sidebar)
   return (
     <>

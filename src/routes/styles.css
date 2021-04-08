@@ -299,7 +299,8 @@ padding: 8px 4px;
   margin-top: 24px;
 }
 .box-value{
-  width: 235px;
+  width: 250px;
+  font-size: 2rem;
   height: 48px;
 }
 .hidden-box {

@@ -3,8 +3,10 @@ import React from 'react'
 
 import { FaUserCircle, FaFileContract, FaHome } from 'react-icons/fa'
 import { GiPaperPlane } from 'react-icons/gi'
-import { AiFillDollarCircle } from 'react-icons/ai'
+import { AiFillDollarCircle, AiOutlineLogout } from 'react-icons/ai'
 import { BiSupport } from 'react-icons/bi'
+
+
 
 export const SidebarData = [
   {
@@ -29,6 +31,12 @@ export const SidebarData = [
     title: 'Suporte',
     path: '/support',
     icon: <BiSupport />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Sair',
+    path: '/logout',
+    icon: <AiOutlineLogout />,
     cName: 'nav-text'
   },
 

@@ -105,6 +105,7 @@ export function AuthProvider({ children }) {
 
   function saveAmountQuotas(count, valor, calc, checkBox) {
     const userID = auth.currentUser.uid
+
     firestore.collection('users').doc(userID).onSnapshot(snapshot => {
       const a = snapshot.data().valorInvestido
       const result = a + valor
@@ -117,6 +118,7 @@ export function AuthProvider({ children }) {
       investimentoPago: false,
       possuiCotaComprada: true,
     }).then(auth.onAuthStateChanged((user) => {
+
       if (user) {
         firestore.collection('users').doc(userID).onSnapshot(doc => {
           if (user) {
@@ -137,6 +139,7 @@ export function AuthProvider({ children }) {
               }
             } else {
               const query = firestore.collection("pagamentos").doc(userID)
+
               query.set({
                 pags: firebase.firestore.FieldValue.arrayUnion({
                   pagar: handleData(24),

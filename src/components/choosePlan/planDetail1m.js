@@ -46,6 +46,7 @@ export default function PlanDetail1M() {
       setValor(recipe.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'))
       await handlePlanGold()
       await saveAmountQuotas(quantidadeCotas, recipe, valorRecebimentoLiveb, checkBox)
+
       history.push(`/plan/ZQpjks7iB1/contract`)
 
     } catch {
@@ -90,21 +91,23 @@ export default function PlanDetail1M() {
                   <Tabs defaultActiveKey="jurosMensais" transition={false} id="noanim-tab-example">
                     <Tab eventKey="jurosMensais" title="Juros Mensais">
                       <div className="row">
-                        <p className="text-dark ">Quantidade de cotas: {(investimento % 1000) === 0 ? quantidadeCotas : 0} cotas</p>
-                        <p className="text-dark">Valor que será investido <strong>R${investimento == null ? 0 : teste.toFixed(2)
+                        <p className="text-dark col-sm-12 ">Quantidade de cotas: {(investimento % 1000) === 0 ? quantidadeCotas : 0} cota(s)</p>
+                        <br></br>
+                        <p className="text-dark col-sm-12">Valor que será investido <strong>R${investimento == null ? 0 : teste.toFixed(2)
                           .replace('.', ',')
                           .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</strong></p>
-                        <p className="text-dark">Juros Mensais Liveb 1.5% A.m: <strong>R${investimento == null ? 0 : (((valor * (quantidadeCotasComparador)) * 1.5) / 100).toFixed(2)
+                        <p className="text-dark col-sm-12" >Juros Mensais Liveb 1.5% A.m: <strong>R${investimento == null ? 0 : (((valor * (quantidadeCotasComparador)) * 1.5) / 100).toFixed(2)
                           .replace('.', ',')
                           .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</strong></p>
-                        <p className="text-dark">CDI 0.22% A.m: <strong>R${investimento == null ? 0 : (((valor * quantidadeCotasComparador) * 0.22) / 100).toFixed(2)
+                        <br />
+                        <p className="text-dark col-sm-12">CDI 0.22% A.m: <strong>R${investimento == null ? 0 : (((valor * quantidadeCotasComparador) * 0.22) / 100).toFixed(2)
                           .replace('.', ',')
                           .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</strong></p>
 
-                        <p className="text-dark">Poupanca 0.16% A.m: <strong>R${investimento == null ? 0 : (((valor * quantidadeCotasComparador) * 0.16) / 100).toFixed(2)
+                        <p className="text-dark col-sm-12">Poupanca 0.16% A.m: <strong>R${investimento == null ? 0 : (((valor * quantidadeCotasComparador) * 0.16) / 100).toFixed(2)
                           .replace('.', ',')
                           .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</strong></p>
-                        <p className="text-dark">Rendimento ao final do plano + investimento inicial: <strong>R${investimento == null ? 0 : (((((valor * quantidadeCotasComparador) * 36) / 100) + (investimento * 1))).toFixed(2)
+                        <p className="text-dark col-sm-12">Rendimento ao final do plano + investimento inicial: <strong>R${investimento == null ? 0 : (((((valor * quantidadeCotasComparador) * 36) / 100) + (investimento * 1))).toFixed(2)
                           .replace('.', ',')
                           .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</strong></p>
                         <br />
@@ -115,21 +118,22 @@ export default function PlanDetail1M() {
 
                     <Tab eventKey="bullet" title="Bullet">
                       <div className="row">
-                        <p className="text-dark ">Quantidade de cotas: {(investimento % 1000) === 0 ? quantidadeCotas : 0} cotas</p>
-                        <p className="text-dark">Valor que será investido <strong>R${investimento == null ? 0 : teste.toFixed(2)
+                        <p className="text-dark col-sm-12">Quantidade de cotas: {(investimento % 1000) === 0 ? quantidadeCotas : 0} cota(s)</p>
+                        <br />
+                        <p className="text-dark col-sm-12">Valor que será investido <strong>R${investimento == null ? 0 : teste.toFixed(2)
                           .replace('.', ',')
                           .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</strong></p>
-                        <p className="text-dark">Bullet Liveb 38.8% no final do plano: <strong>R${investimento == null ? 0 : ((((valor * (quantidadeCotasComparador)) * 38.8) / 100)).toFixed(2)
+                        <p className="text-dark col-sm-12">Bullet Liveb 38.8% no final do plano: <strong>R${investimento == null ? 0 : ((((valor * (quantidadeCotasComparador)) * 38.8) / 100)).toFixed(2)
                           .replace('.', ',')
                           .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</strong></p>
-                        <p className="text-dark">CDI 5,28% após 24 meses: <strong>R${investimento == null ? 0 : ((((valor * quantidadeCotasComparador) * 5.28) / 100)).toFixed(2)
+                        <p className="text-dark col-sm-12">CDI 5,28% após 24 meses: <strong>R${investimento == null ? 0 : ((((valor * quantidadeCotasComparador) * 5.28) / 100)).toFixed(2)
                           .replace('.', ',')
                           .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</strong></p>
 
-                        <p className="text-dark">Poupanca 0.16% após 24 meses: <strong>R${investimento == null ? 0 : (((valor * quantidadeCotasComparador) * 3.84) / 100).toFixed(2)
+                        <p className="text-dark col-sm-12">Poupanca 0.16% após 24 meses: <strong>R${investimento == null ? 0 : (((valor * quantidadeCotasComparador) * 3.84) / 100).toFixed(2)
                           .replace('.', ',')
                           .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</strong></p>
-                        <p className="text-dark">Rendimento ao final do plano + investimento inicial: <strong>R${investimento == null ? 0 : (((((valor * quantidadeCotasComparador) * 38.8) / 100) + (investimento * 1))).toFixed(2)
+                        <p className="text-dark col-sm-12">Rendimento ao final do plano + investimento inicial: <strong>R${investimento == null ? 0 : (((((valor * quantidadeCotasComparador) * 38.8) / 100) + (investimento * 1))).toFixed(2)
                           .replace('.', ',')
                           .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</strong></p>
                         <br />

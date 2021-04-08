@@ -13,6 +13,7 @@ import ForgotPass from '../components/forgotPass'
 import NotFound from '../components/notfound'
 import Profile from '../components/profile'
 import Contract from '../components/contract'
+import Logout from '../components/logout'
 import Support from '../components/support'
 import { AuthProvider } from '../context/authContext.js'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -49,6 +50,7 @@ export default function RouterProvider() {
             <PrivateRoute path="/plan/ZQpjks7iBM/contract" component={Contract} exact />
             <PrivateRoute path="/plan/ZQpjks7iB1/contract" component={Contract} exact />
             <PrivateRoute path="/support" component={Support} exact />
+            <PrivateRoute path="/logout" component={Logout} exact />
             <Route path="/login" component={Login} />
             <PrivateRoute component={NotFound} />
 
