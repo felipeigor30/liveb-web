@@ -152,7 +152,7 @@ export default function PlanDetail1M() {
                   <div className='d-flex justify-content-between'>
                     <div>
                       <BsClockHistory className="icon-tab" />
-                      <span className="span-end">Termina em 07/04/2021</span>
+                      <span className="span-end">Termina em 12/04/2021</span>
                     </div>
                     <div>
                       <a href="https://www.livebinvestimentos.com.br/wp-content/uploads/2021/03/Prospecto-Condomi%CC%81nio-Bota%CC%82nico-1-Sales.pdf" target="_blank" rel="noreferrer">
