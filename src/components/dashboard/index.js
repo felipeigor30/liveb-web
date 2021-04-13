@@ -10,7 +10,7 @@ import FlatList from 'flatlist-react'
 
 export default function Dashboard() {
 
-  const { nome, valorInvestido, payments, listPaymentsReceivable, qtdRecebida, auxiliar } = useAuth();
+  const { nome, payments, listPaymentsReceivable, qtdRecebida, auxiliar } = useAuth();
   const [show, setShow] = useState(false);
   const [buttonList, setButtonList] = useState(false);
   const [ativosHidden, setAtivosHidden] = useState(true);

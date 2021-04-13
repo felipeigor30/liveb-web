@@ -40,7 +40,7 @@ export default function ChoosePlan() {
                 <li className="mb-2">Investimento Mínimo: R$ 1000,00</li>
                 <Link to={'/plan/ZQpjks7iBM'}><Button className='w-100 button-plan mt-2'>Saber mais</Button></Link>
               </div> */}
-              <div className="card p-2 col-md-4 col-xs-12" >
+              {/* <div className="card p-2 col-md-4 col-xs-12" >
                 <img src={ImageDefaultPlan} alt='logo' className='img-fluid mb-3' />
                 <li className="mb-2">
                   <strong>Botânico 1 Condomínio Sales Oliveira - SP</strong></li>
@@ -49,7 +49,7 @@ export default function ChoosePlan() {
                 <li className="mb-2">Rentabilidade(Bullet): 19.4% a.a </li>
                 <li className="mb-2">Investimento Mínimo: R$ 1.000,00</li>
                 <Link to={'/plan/ZQpjks7iB1'}><Button className='w-100 button-plan mt-2'>Saber mais</Button></Link>
-              </div>
+              </div> */}
 
 
             </div>
